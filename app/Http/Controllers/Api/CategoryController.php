@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Resources\CategoryResource;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -18,8 +19,14 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
-    public function list()
+    public function store(Request $request)
     {
-        return CategoryResource::collection(Category::all());
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category = Category::create($data);
+        
+        return new CategoryResource($category);
     }
 }
