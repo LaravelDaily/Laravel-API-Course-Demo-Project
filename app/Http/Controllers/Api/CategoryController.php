@@ -22,7 +22,10 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::create($request->validated());
+        $data = $request->validated();
+        $data['photo'] = $request->file('photo')->store('categories', 'public');
+
+        $category = Category::create($data);
         
         return new CategoryResource($category);
     }

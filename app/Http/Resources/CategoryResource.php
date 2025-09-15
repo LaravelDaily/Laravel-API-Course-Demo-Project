@@ -17,6 +17,7 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'photo' => $this->photo,
             'description' => $this->when($request->is('api/categories*'), function () use ($request) {
                 if ($request->is('api/categories')) { 
                     return str($this->description)->limit(20);
