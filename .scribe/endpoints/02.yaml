@@ -1,0 +1,47 @@
+name: Products
+description: |-
+
+  Managing Products
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/products
+    metadata:
+      groupName: Products
+      groupDescription: |-
+
+        Managing Products
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"category_id":6,"name":"architecto","description":"Vitae hic ut voluptas deleniti officia ut. Sit et impedit et. Temporibus eos adipisci corrupti omnis aut autem ea.","price":"596.50","category":{"id":6,"name":"dolorem sed excepturi","photo":null}},{"id":2,"category_id":9,"name":"iusto","description":"Eius dolorem doloribus facere et. Vel neque et excepturi veritatis. Rerum et itaque voluptas laboriosam debitis repellendus.","price":"945.52","category":{"id":9,"name":"voluptate et laborum","photo":null}},{"id":3,"category_id":10,"name":"eos","description":"Rerum excepturi totam praesentium dolore sint ipsum qui. Nihil ad quia quidem quo aliquam ut facere.","price":"419.23","category":{"id":10,"name":"aut dolorum et","photo":null}}],"links":{"first":"http:\/\/api.test\/api\/products?page=1","last":"http:\/\/api.test\/api\/products?page=7","prev":null,"next":"http:\/\/api.test\/api\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":7,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/api.test\/api\/products?page=1","label":"1","page":1,"active":true},{"url":"http:\/\/api.test\/api\/products?page=2","label":"2","page":2,"active":false},{"url":"http:\/\/api.test\/api\/products?page=3","label":"3","page":3,"active":false},{"url":"http:\/\/api.test\/api\/products?page=4","label":"4","page":4,"active":false},{"url":"http:\/\/api.test\/api\/products?page=5","label":"5","page":5,"active":false},{"url":"http:\/\/api.test\/api\/products?page=6","label":"6","page":6,"active":false},{"url":"http:\/\/api.test\/api\/products?page=7","label":"7","page":7,"active":false},{"url":"http:\/\/api.test\/api\/products?page=2","label":"Next &raquo;","page":2,"active":false}],"path":"http:\/\/api.test\/api\/products","per_page":3,"to":3,"total":20}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

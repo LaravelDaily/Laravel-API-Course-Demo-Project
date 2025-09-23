@@ -7,9 +7,18 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use App\Http\Resources\CategoryResource;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Group;
 
+#[Group('Categories', 'Managing Categories')]
 class CategoryController extends Controller
 {
+    /**
+     * Get Categories
+     *
+     * Getting the list of the categories
+     * 
+     * @queryParam page Which page to show. Example: 12
+     */
     public function index()
     {
         return CategoryResource::collection(Category::all());
@@ -20,6 +29,11 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
+    /**
+     * POST categories
+     *
+     * @bodyParam name string required Name of the category. Example: "Clothing"
+     */
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
