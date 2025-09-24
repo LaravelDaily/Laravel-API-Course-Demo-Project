@@ -13,11 +13,23 @@ use Knuckles\Scribe\Attributes\Group;
 class CategoryController extends Controller
 {
     /**
-     * Get Categories
-     *
-     * Getting the list of the categories
-     * 
-     * @queryParam page Which page to show. Example: 12
+     * @OA\Get(
+     *     path="/categories",
+     *     tags={"Categories"},
+     *     summary="Get list of categories",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *     ),
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *     ),
+     *     @OA\Response(
+     *          response=403,
+     *          description="Forbidden",
+     *     )
+     * )
      */
     public function index()
     {
