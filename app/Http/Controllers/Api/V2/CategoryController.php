@@ -48,7 +48,9 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
-        $data['photo'] = $request->file('photo')->store('categories', 'public');
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('categories', 'public');
+        }
 
         $category = Category::create($data);
         
