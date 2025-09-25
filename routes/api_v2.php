@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V2\CategoryController;
 use App\Http\Controllers\Api\V2\ProductController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::middleware(['throttle:api'])->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    })->middleware('auth:sanctum');
 
-Route::apiResource('/categories', CategoryController::class);
+    Route::apiResource('/categories', CategoryController::class);
+    Route::get('/products', [ProductController::class, 'index']);
+});
 
-Route::get('/products', [ProductController::class, 'index']);
