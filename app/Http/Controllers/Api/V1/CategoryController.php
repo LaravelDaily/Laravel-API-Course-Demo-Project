@@ -32,7 +32,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection(Category::all());
+        return CategoryResource::collection(
+            cache()->remember('categories', 60*60*24, function () {
+                return Category::all();
+            })
+        );
     }
 
     public function show(Category $category)
